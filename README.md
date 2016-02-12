@@ -1,6 +1,6 @@
 # Chatty Group Project
 
-##Group: Yuletide
+##Group: Ahmedless
 - Theo Carnavos @github/kdylanthomas
 - Katlyn Spears @github/katspears206
 - Jason Weakley @github/JasonWeakley
