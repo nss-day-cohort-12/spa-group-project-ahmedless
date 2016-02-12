@@ -1,14 +1,20 @@
 # Chatty Group Project
 
-## Setup
+##Group: Yuletide
+- Theo Carnavos @github/kdylanthomas
+- Katlyn Spears @github/katspears206
+- Jason Weakley @github/JasonWeakley
 
-Every teammate copy and run the following commands in the host machine terminal.
-
-```bash
-mkdir -p ~/workspace/group-projects && cd $_
-git clone [Github Classroom repo URL]
-cd [repo name]
-```
+##Dependencies
+-Google Chrome is suggested for using dev tools
+##Installation
+You can retrieve this project from this link to [GitHub](https://github.com/nss-day-cohort-12/language-translator-yuletide)
+##Serving
+Serve using the local host from the project directory.
+##Contact
+- [Theo Carnavos](https://github.com/Carnavos)
+- [Katlyn Spears](https://github.com/katspears206)
+- [Jason Weakley](https://github.com/JasonWeakley)
 
 ## Requirements
 
