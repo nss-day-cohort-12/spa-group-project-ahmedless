@@ -1,1 +1,17 @@
 /* Styles for Group Project: Ahmedless */
+
+/* Body Padding to account for fixed navbar (takes up space at top of page) */
+body {
+	padding-top: 70px;
+}
+
+/* Ahmed Face Pic Styling*/
+img {
+	padding: 2% 0;
+	border-radius: 8%;
+}
+
+/* Input bar width */
+#userInput {
+	width: 300px;
+}
