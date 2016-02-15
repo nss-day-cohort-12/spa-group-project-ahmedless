@@ -10,6 +10,7 @@ console.log("JS is working");
 
 var Chatty = (function () {
 	var privateMessages = [];
+
 	return {
 		loadMessages: function (callBackFunction) {
 			var loader = new XMLHttpRequest();
@@ -26,5 +27,4 @@ var Chatty = (function () {
 	}
 })();
 
-Chatty.loadMessages();
 
