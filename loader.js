@@ -5,5 +5,30 @@
 // One IIFE should accept a message element id and then remove the correct element from the DOM. This IIFE should also remove the corresponding message from the private array that was created in the previous IIFE.
 
 
+// Put this in events.js
+var container = document.getElementById("container");
+
+
+
+var Chatty = (function (oldChatty) {
+	
+	oldChatty.populatePage = function (allMessages) {
+		var writeToDOM = "";
+		for (var i = 0; i < allMessages.length; i++) {
+			var currentMessage = allMessages[i];
+			console.log("currentMessage",currentMessage);
+
+			writeToDOM += 	`<div>${currentMessage.genus}</div>` +
+							`<input type="button" value="Delete">`;
+		};
+		container.innerHTML = writeToDOM;
+	}
+	return oldChatty;
+	
+})(Chatty);
+
+
+Chatty.loadMessages(Chatty.populatePage);
+
 
 
