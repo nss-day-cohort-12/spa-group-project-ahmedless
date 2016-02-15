@@ -9,16 +9,21 @@ console.log("JS is working");
 // the variable Chatty has the value of an object, because it has an object returned to it.
 
 var Chatty = (function () {
-	var privateMessages = [];
 
 	return {
 		loadMessages: function (callBackFunction) {
 			var loader = new XMLHttpRequest();
 			loader.addEventListener("load", function() {
-				privateMessages = JSON.parse(this.responseText).msgList;
-				console.log("privateMessages", privateMessages);
-
-				callBackFunction(privateMessages);
+				// declaring local variable to store parsed JSON
+				var messageData = JSON.parse(this.responseText).msgList;
+				console.log("privateMessages", messageData);
+				// Loop through JSON array and invoke callback function on each item (should be Chatty.writeMessage, which accepts two arguments)
+				for (var i = 0; i < messageData.length; i++) {
+					// local counter variable
+					var currentMessage = messageData[i];
+					// currentMessage.genus is a string, i is provided as the element ID
+					callBackFunction(currentMessage.genus, i);
+				}
 			});
 
 			loader.open("GET", "messages.json");

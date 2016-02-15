@@ -9,26 +9,46 @@
 var container = document.getElementById("container");
 
 
-
 var Chatty = (function (oldChatty) {
-	
-	oldChatty.populatePage = function (allMessages) {
-		var writeToDOM = "";
-		for (var i = 0; i < allMessages.length; i++) {
-			var currentMessage = allMessages[i];
-			console.log("currentMessage",currentMessage);
+	var privateMessages = [];
 
-			writeToDOM += 	`<div>${currentMessage.genus}</div>` +
-							`<input type="button" value="Delete">`;
+	// function to store user message into privateMessages array and add it to DOM
+	oldChatty.writeMessage = function (userMessage, elementId) {
+
+		// Declare empty string
+		var writeToDOM = "";
+
+		// Add "row" div (for Bootstrap) and inside it a div and button
+		writeToDOM += `<div class="row">` +
+								`<div class="col-md-6 message" id="${elementId}">${userMessage}</div>` +
+								`<input class="col-md-1 deleteButton" type="button" value="Delete">` +
+								`</div>`;
+		// declare new object with the same setup as the original JSON data objects
+		var newMessage = {
+			"genus": userMessage
 		};
-		container.innerHTML = writeToDOM;
+		console.log("newMessage: ", newMessage);
+		privateMessages.push(newMessage);
+		console.log("privateMessages: ", privateMessages);
+		container.innerHTML += writeToDOM;
+	},
+
+	oldChatty.deleteMessage = function(messageId) {
+		var deleteTarget = document.getElementById(messageId).innerHTML;
+		console.log("deleteTarget: ", deleteTarget);
+		for (var i = 0; i < privateMessages.length; i++) {
+			var currentMessage = privateMessages[i];
+			if (currentMessage === deleteTarget) {
+				privateMessages.splice(i, 1); // Delete from array (in some form)
+				console.log("Modded/Deleted privateMessages: ", privateMessages);
+			}
+		}
+	},
+
+	oldChatty.getMessages = function() {
+		return privateMessages;
 	}
+
 	return oldChatty;
 	
 })(Chatty);
-
-
-Chatty.loadMessages(Chatty.populatePage);
-
-
-
