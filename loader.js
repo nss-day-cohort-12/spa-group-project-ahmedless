@@ -9,7 +9,6 @@
 var container = document.getElementById("container");
 
 
-
 var Chatty = (function (oldChatty) {
 	var privateMessages = [];
 

@@ -9,7 +9,7 @@ console.log("JS is working");
 // the variable Chatty has the value of an object, because it has an object returned to it.
 
 var Chatty = (function () {
-	// var privateMessages = [];
+
 	return {
 		loadMessages: function (callBackFunction) {
 			var loader = new XMLHttpRequest();
