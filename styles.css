@@ -15,3 +15,8 @@ img {
 #userInput {
 	width: 300px;
 }
+
+.deleteButton {
+	display: inline;
+	margin-left: 70px
+}
