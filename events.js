@@ -10,6 +10,10 @@ largeTextCheck.addEventListener("change", function(){
   container.classList.toggle('largeText');
 });
 
+darkThemeCheck.addEventListener("change", function(){
+  container.classList.toggle('darkTheme');
+});
+
 var idCounter = 0;
 // New counter variable (using "i" and length failed when messages were deleted)
 
