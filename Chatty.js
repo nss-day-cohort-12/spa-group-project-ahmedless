@@ -22,7 +22,9 @@ var Chatty = (function () {
 					// local counter variable
 					var currentMessage = messageData[i];
 					// currentMessage.genus is a string, i is provided as the element ID
-					callBackFunction(currentMessage.genus, i);
+					callBackFunction(currentMessage.genus, idCounter);
+					idCounter++;
+					console.log("idCounter: ", idCounter);
 				}
 			});
 

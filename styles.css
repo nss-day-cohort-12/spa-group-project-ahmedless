@@ -16,7 +16,25 @@ img {
 	width: 300px;
 }
 
-.deleteButton {
-	display: inline;
-	margin-left: 70px
+.panel-heading {
+	opacity: .8;
 }
+
+/* Large Text Styling */
+.largeText {
+	font-size: 1.5em;
+}
+
+.largeText .form-control {
+	font-size: 1em;
+	height: 40px;
+}
+
+.largeText .deleteButton {
+	height: 40px;
+}
+
+.input-group-btn {
+	/*display: none;*/
+}
+
