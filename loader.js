@@ -4,11 +4,6 @@
 // One IIFE should accept an element id, and the user message, and then add the user's message - along with the delete button - to the specified parent element. Each message should be stored in a private array in this IIFE. This IIFE should expose a function to read all messages, and delete a single message.
 // One IIFE should accept a message element id and then remove the correct element from the DOM. This IIFE should also remove the corresponding message from the private array that was created in the previous IIFE.
 
-
-// Put this in events.js
-var container = document.getElementById("container");
-
-
 var Chatty = (function (oldChatty) {
 	var privateMessages = [];
 
@@ -20,9 +15,14 @@ var Chatty = (function (oldChatty) {
 
 		// Add "row" div (for Bootstrap) and inside it a div and button
 		writeToDOM += `<div class="row">` +
-								`<div class="col-md-6 message" id="${elementId}">${userMessage}</div>` +
-								`<input class="col-md-1 deleteButton" type="button" value="Delete">` +
-								`</div>`;
+										`<div class="col-md-12">` +
+											`<div class="input-group">` +
+												`<div class="message form-control" id="${elementId}">${userMessage}</div>` +
+												`<span class="input-group-btn"><input class="deleteButton btn btn-default" type="button" value="Delete"></span>` +
+												// `<button class="deleteButton input-group-btn" type="button"></button>` +
+											`</div>` +
+										`</div>` +
+									`</div>`;
 		// declare new object with the same setup as the original JSON data objects
 		var newMessage = {
 			"genus": userMessage
@@ -31,6 +31,8 @@ var Chatty = (function (oldChatty) {
 		privateMessages.push(newMessage);
 		console.log("privateMessages: ", privateMessages);
 		container.innerHTML += writeToDOM;
+		// Enable Clear Button
+		clearButton.setAttribute("disabled", false);
 	},
 
 	oldChatty.deleteMessage = function(messageId) {
