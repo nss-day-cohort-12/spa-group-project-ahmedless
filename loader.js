@@ -37,16 +37,6 @@ var Chatty = (function (oldChatty) {
 		idCounter++;
 	},
 
-	oldChatty.deleteMessage = function(messageId) {
-		console.log("messageId: ", messageId);
-		for (var i = 0; i < privateMessages.length; i++) {
-			var currentMessage = privateMessages[i];
-			if (currentMessage.id === messageId) {
-				privateMessages.splice(i, 1); // Delete from array (in some form)
-				console.log("Modded/Deleted privateMessages: ", privateMessages);
-			}
-		}
-	},
 
 	oldChatty.getMessages = function() {
 		return privateMessages;

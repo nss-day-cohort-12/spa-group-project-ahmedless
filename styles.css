@@ -38,3 +38,9 @@ img {
 	/*display: none;*/
 }
 
+.darkTheme,
+.darkTheme .form-control,
+.darkTheme .deleteButton {
+	background-color: darkgrey;
+	color: white;
+}
