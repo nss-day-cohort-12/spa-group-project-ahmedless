@@ -19,28 +19,29 @@ var Chatty = (function (oldChatty) {
 											`<div class="input-group">` +
 												`<div class="message form-control" id="${elementId}">${userMessage}</div>` +
 												`<span class="input-group-btn"><input class="deleteButton btn btn-default" type="button" value="Delete"></span>` +
-												// `<button class="deleteButton input-group-btn" type="button"></button>` +
 											`</div>` +
 										`</div>` +
 									`</div>`;
 		// declare new object with the same setup as the original JSON data objects
 		var newMessage = {
-			"genus": userMessage
+			"genus": userMessage,
+			"id": idCounter
 		};
 		console.log("newMessage: ", newMessage);
 		privateMessages.push(newMessage);
 		console.log("privateMessages: ", privateMessages);
 		container.innerHTML += writeToDOM;
 		// Enable Clear Button
-		clearButton.setAttribute("disabled", false);
+		clearButton.removeAttribute("disabled");
+		console.log("clearButton: ", clearButton);
+		idCounter++;
 	},
 
 	oldChatty.deleteMessage = function(messageId) {
-		var deleteTarget = document.getElementById(messageId).innerHTML;
-		console.log("deleteTarget: ", deleteTarget);
+		console.log("messageId: ", messageId);
 		for (var i = 0; i < privateMessages.length; i++) {
 			var currentMessage = privateMessages[i];
-			if (currentMessage === deleteTarget) {
+			if (currentMessage.id === messageId) {
 				privateMessages.splice(i, 1); // Delete from array (in some form)
 				console.log("Modded/Deleted privateMessages: ", privateMessages);
 			}

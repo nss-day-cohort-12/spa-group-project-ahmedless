@@ -26,27 +26,29 @@ userInput.addEventListener("keypress", function(event){
 
 //Clear all messages button with disable
 clearButton.addEventListener("click", function(){
-  var messageRows = container.querySelectorAll(".row");
-  console.log("messageRows: ", messageRows);
-  messageRows.remove();
+  container.innerHTML = `<div class="panel-heading">Messages: </div>`;
   clearButton.setAttribute("disabled", true);
+  var messages = Chatty.getMessages();
+  console.log("messages: ", messages);
+  for (var i = 0; i < messages.length; i++) {
+    var currentMessage = messages[i];
+    console.log("currentMessage: ", currentMessage.id);
+    Chatty.deleteMessage(currentMessage.id);
+  }
+  console.log("cleared privateMessages: ", Chatty.getMessages());
 });
 
 // Bubbling event listener
 document.querySelector("body").addEventListener("click", function(event) {
-  // console.log("event target: ", event.target);
-  // console.log("event target ClassList: ", event.target.classList);
-  // console.log("event target: ", event.target);
+  console.log("event target: ", event.target);
 
-  // Handle the click event on any DOM element with a certain class
-  // if (event.target.classList.contains("message")) {
-  //   console.log("You clicked on an `message` element");
-  //   console.log("id attempt", event.target.id);
-  // }
   if (event.target.classList.contains("deleteButton")) {
+    var messageDivId = parseInt(event.target.parentNode.previousSibling.id);
+    console.log("messageDivId: ", messageDivId);
     var messageRow = event.target.parentElement.parentElement.parentElement.parentElement;
     console.log("messageRow: ", messageRow);
     messageRow.remove();
+    Chatty.deleteMessage(messageDivId);
   }
 
 });
